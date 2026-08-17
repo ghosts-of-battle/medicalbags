@@ -29,7 +29,7 @@ class CfgVehicles {
                 class GVAR(Medical_Supplies_Action_DrugKit) {
                     displayName = "Unpack Drug Kit";
                     condition = player call FUNC(candrugkit);
-                    statement = player call FUNC(domedkit);
+                    statement = player call FUNC(dodrugkit);
                     exceptions[] = {"isNotInside", "isNotSitting"};
                     icon = QPATHTOF(data\icons\medical_cross_ex_ca.paa);
                     showDisabled = 0;
@@ -44,7 +44,20 @@ class CfgVehicles {
                 };
             };
         };
-        
+
+        class ACE_MainActions {
+            class ACE_Equipment {
+                class GVAR(Medical_Supplies_Action_TakeMedBag) {
+                    displayName = "Take Medical Supplies";
+                    condition = QUOTE([ARR_2(_target,_player)] call FUNC(cantakemedbag));
+                    statement = QUOTE([ARR_2(_target,_player)] call FUNC(dotakemedbag));
+                    exceptions[] = {"isNotInside", "isNotSitting"};
+                    icon = QPATHTOF(data\icons\medical_cross_ex_ca.paa);
+                    showDisabled = 0;
+                };
+            };
+        };
+
     };
 
     // MEDICAL SUPPLIES

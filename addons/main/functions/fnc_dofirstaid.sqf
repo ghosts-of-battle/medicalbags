@@ -39,24 +39,15 @@ if (isNull _unit) exitWith {};
     waitUntil {if ((MEDBAG_MEDICAL_SUPPLIES_UNPACK_SUCCESS) || (MEDBAG_MEDICAL_SUPPLIES_UNPACK_FAILURE)) exitWith {true}; false};
     
     if (MEDBAG_MEDICAL_SUPPLIES_UNPACK_SUCCESS) exitWith {
-        
+
         _unit removeItem QGVAR(FirstAid);
-        
+
         private _order = [1,3,2];
         private _overflow = false;
-        
-        [_unit, "ACE_fieldDressing", 8, _order, _overflow] call FUNC(addItem);
-        [_unit, "ACE_quikClot", 8, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_Painkiller", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "ACE_tourniquet", 4, _order, _overflow] call FUNC(addItem);
-        [_unit, "ACE_EarPlugs", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_chestSeal", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_aatKit", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "ACE_salineIV_500", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_larynx", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_guedel", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_TXA", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "kat_IV_16", 1, _order, _overflow] call FUNC(addItem);
-        [_unit, "ACE_splint", 2, _order, _overflow] call FUNC(addItem);
+
+        {
+            _x params ["_item", "_amount"];
+            [_unit, _item, _amount, _order, _overflow] call FUNC(addItem);
+        } forEach (parseSimpleArray GVAR(firstAidItems));
     };
 };

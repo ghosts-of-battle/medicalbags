@@ -1,0 +1,22 @@
+name = "Medical Bags"
+mainprefix = "z"
+prefix = "medbag"
+
+[files]
+include = [
+    "mod.cpp",
+    "README.md",
+    "LICENSE",
+    "gobp2_256_g.paa",
+    "gobp2_256.paa",
+    "gobp2_512.paa",
+    "gbbanner_booboo.paa",
+]
+
+exclude = ["*.psd", "*.png", "*.tga"]
+
+[version]
+path = "addons/main/script_version.hpp"
+
+[properties]
+author = "YonV"

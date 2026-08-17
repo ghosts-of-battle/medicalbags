@@ -4,6 +4,7 @@ releases/*
 *.biprivatekey
 keys/*
 .hemtt/local
+.hemttout/
 ####
 
 ## Added by HEMTT

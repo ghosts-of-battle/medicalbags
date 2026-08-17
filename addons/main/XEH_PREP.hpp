@@ -8,3 +8,5 @@ PREP(dodrugkit);
 PREP(arsenal);
 PREP(cantrauma);
 PREP(dotrauma);
+PREP(cantakemedbag);
+PREP(dotakemedbag);
